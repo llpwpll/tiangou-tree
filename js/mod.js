@@ -18,7 +18,9 @@ let VERSION = {
 
 let changelog = `<h1>更新记录:</h1><br>
 	<h3>v0.0</h3><br>
-		- 失意.<br>`
+		- 失意.<br>
+	<h3>v0.1</h3><br>
+	    - 因本人尚未谈过恋爱，此树不限期停更<br>`
 
 let winText = `恭喜通关!您已经完成了这个游戏.`
 
@@ -39,6 +41,9 @@ function canGenPoints(){
 function getPointGen() {
 	if(!canGenPoints()) return new ExpantaNum(0)
 	let gain = new ExpantaNum(1)
+	if(hasUpgrade("x",11)) gain = gain.times(2)
+	if(hasUpgrade("x",12)) gain = gain.times(4)
+	if(hasUpgrade("x",13)) gain = gain.times(10)
 	return gain
 }
 
